@@ -17,16 +17,14 @@ import jakarta.persistence.PersistenceContext;
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	@Override   
+	@Override
 	@Transactional
 	public List<Usuario> getUsuarios() {	
 		
 		String query="FROM Usuario";
 		List<Usuario> resultado=entityManager.createQuery(query).getResultList();
 		
-		return resultado;
-		
-		
+		return resultado;				
 	}
 	
 	@Override
@@ -35,5 +33,11 @@ import jakarta.persistence.PersistenceContext;
 		entityManager.remove(usuario);
 		
 	}
+	
+    @Override
+    public void registrar(Usuario usuario) {
+        entityManager.persist(usuario);
+    }
+
 }
 

@@ -5,7 +5,7 @@ $(document).ready(function() {
 	cargarUsuarios();
 	
 	
-  $('#usuarios').DataTable();
+  $('#usuario').DataTable();
 });
 
 
